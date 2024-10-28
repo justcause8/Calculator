@@ -81,6 +81,14 @@ function handleButtonClick(buttonId) {
     updateDisplay();
 }
 
+function handleNumber(number) {
+    if (currentValue === '0') {
+        currentValue = number;
+    } else {
+        currentValue += number;
+    }
+}
+
 function clearDisplay() {
     currentValue = '0';
     previousValue = null;
