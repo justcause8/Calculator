@@ -89,6 +89,38 @@ function handleNumber(number) {
     }
 }
 
+function calculate() {
+    if (previousValue !== null && operator !== null) {
+        const prev = parseFloat(previousValue);
+        const curr = parseFloat(currentValue);
+        switch (operator) {
+            case '+':
+                currentValue = (prev + curr).toString();
+                break;
+            case '-':
+                currentValue = (prev - curr).toString();
+                break;
+            case '*':
+                currentValue = (prev * curr).toString();
+                break;
+            case '/':
+                if (curr === 0) {
+                    currentValue = 'Error';
+                } else {
+                    currentValue = (prev / curr).toString();
+                }
+                break;
+            default:
+                break;
+        }
+        previousValue = null;
+    }
+    else {
+        previousValue = currentValue;
+        currentValue = '0';
+    }
+}
+
 function clearDisplay() {
     currentValue = '0';
     previousValue = null;
